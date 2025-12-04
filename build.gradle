@@ -23,14 +23,19 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter:5.10.2'
     testImplementation 'com.codeborne:selenide:6.19.1'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
     testCompileOnly 'org.projectlombok:lombok:1.18.36'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
     testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.32'
     testImplementation 'io.qameta.allure:allure-selenide:2.27.0'
-
+    testImplementation 'mysql:mysql-connector-java:8.0.33'
+    testImplementation 'org.postgresql:postgresql:42.6.0'
+    testImplementation 'org.apache.commons:commons-dbcp2:2.11.0'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'
 }
+
 
 test {
     useJUnitPlatform()

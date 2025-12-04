@@ -7,29 +7,28 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: aqa_shop_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: app
+      MYSQL_USER: app
+      MYSQL_PASSWORD: pass
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 10s
       retries: 5
 
-  postgresql:
-    image: postgres:13
-    container_name: postgres_db
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_DB: aqa_shop_db
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+#  postgresql:
+#   container_name: postgres_db
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_DB: app
+#      POSTGRES_USER: app
+#      POSTGRES_PASSWORD: pass
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+#      interval: 5s
+#      timeout: 5s
+#     retries: 5
 
   gate-simulator:
     build:
